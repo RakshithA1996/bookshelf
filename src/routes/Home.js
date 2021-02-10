@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Banner from '../components/Banner';
+import { Banner } from '../components/Banner';
+import { Features } from '../components/Features';
 import { Header } from '../components/Header';
-import { PopularBooks } from '../components/PopularBooks';
+import { PopularBooks } from '../components/RegisterBooks';
 import { HomeWrapper } from '../styles/routes/HomeStyle';
 
 class Home extends Component {
@@ -9,7 +10,7 @@ class Home extends Component {
         super();
         this.state = {
             isBorder: false,
-        }
+        };
     }
 
     componentDidMount() {
@@ -22,13 +23,16 @@ class Home extends Component {
         };
     }
 
+    executeScroll = () => {window.scrollTo(0, 750);}
+
     render(){
         const {isBorder} = this.state;
         return(
             <HomeWrapper>
-                <Header isBorder = {isBorder} />
+                <Header isBorder = {isBorder} executeScroll={this.executeScroll} />
                 <Banner />
                 <PopularBooks />
+                <Features />
             </HomeWrapper>
         )
     }
