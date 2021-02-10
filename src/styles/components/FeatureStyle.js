@@ -11,8 +11,8 @@ const lightTheme = {
 const darkTheme = {
     featureBg:"#000000",
     featureHeadColor:"#ffffff",
-    featureSubHeadColor:"#757575",
-    featureSubDes:"#10e0cb",
+    featureSubHeadColor:"#ffffff",
+    featureSubDes:"#757575",
     featureImgBg:"#0bbdab",
 }
 
@@ -22,8 +22,8 @@ const media = {
 
 export const FeatureWrapper = styled.div`
     background: ${props => props.isDark ? darkTheme.featureBg : lightTheme.featureBg};
-    padding:6rem 10rem;
-    padding-bottom: 10rem;
+    padding:10rem;
+    padding-bottom:14rem;
 
     ${media.mobile} {
         padding:6rem;
@@ -32,7 +32,8 @@ export const FeatureWrapper = styled.div`
     .featureHeader{
         text-align:center;
         font-family: 'Anton',sans-serif;
-        font-size: 4rem;
+        font-size: 5rem;
+        line-height:150%;
         margin-bottom: 6rem;
         color: ${props => props.isDark ? darkTheme.featureHeadColor : lightTheme.featureHeadColor};
     }
@@ -59,7 +60,7 @@ export const FeatureWrapper = styled.div`
             }
 
             &--image {
-                margin-bottom: 2rem;
+                margin-bottom: 4rem;
                 padding:1rem;
                 padding-bottom:0.4rem;
                 background: ${props => props.isDark ? darkTheme.featureImgBg : lightTheme.featureImgBg};
@@ -73,14 +74,15 @@ export const FeatureWrapper = styled.div`
             }
 
             &--heading {
-                margin-bottom: 1.4rem;
-                font-size: 2rem;
+                margin-bottom: 2rem;
+                font-size: 3rem;
+                word-spacing:0.6rem;
                 font-family: 'Abril Fatface',cursive;
                 color: ${props => props.isDark ? darkTheme.featureSubHeadColor : lightTheme.featureSubHeadColor};
             }
 
             &--description {
-                font-size:1.5rem;
+                font-size:2rem;
                 line-height:150%;
                 font-family: 'Yusei Magic',sans-serif;
                 color: ${props => props.isDark ? darkTheme.featureSubDes : lightTheme.featureSubDes};

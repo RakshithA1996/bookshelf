@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Banner } from '../components/Banner';
-import { Features } from '../components/Features';
-import { Header } from '../components/Header';
-import { PopularBooks } from '../components/RegisterBooks';
+import { Banner } from '../components/Home/Banner';
+import { Features } from '../components/Home/Features';
+import { Footer } from '../components/Home/Footer';
+import { Header } from '../components/Home/Header';
+import { PopularBooks } from '../components/Home/RegisterBooks';
 import { HomeWrapper } from '../styles/routes/HomeStyle';
 
 class Home extends Component {
@@ -33,6 +34,7 @@ class Home extends Component {
                 <Banner />
                 <PopularBooks />
                 <Features />
+                <Footer />
             </HomeWrapper>
         )
     }

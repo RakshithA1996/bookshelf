@@ -1,8 +1,5 @@
 INSTRUCTION :
 
-This movie db application is created with https://developers.themoviedb.org/3/movies/get-movie-details free api
-the above link provided will give the api for retriveing movie details.
-
 
 
 Flow of execution :

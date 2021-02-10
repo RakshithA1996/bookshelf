@@ -7,6 +7,5 @@ export function getQuery() {
       acc[inc[0]] = inc[1];
       return acc;
     }, {});
-    
     return b;
 }
