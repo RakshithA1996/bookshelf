@@ -10,14 +10,20 @@ const lightTheme = {
     para2:"#f0912b",
 } 
 
+const darkTheme = {
+    bannerBg:"#000000",
+    para1:"#757575",
+    para2:"#0bbdab",
+}
+
 export const BannerWarapper = styled.div`
-    margin-top:10.3rem;
+    margin-top:6.3rem;
     display:flex;
     flex-direction:row;
     padding: 10rem 0;
     padding-bottom: 0;
-    background: ${lightTheme.bannerBg};
-    height: 90vh;
+    background: ${props => props.isDark ? darkTheme.bannerBg : lightTheme.bannerBg};
+    height: 93vh;
 
     ${media.mobile} {
         flex-direction:column;
@@ -41,7 +47,7 @@ export const BannerWarapper = styled.div`
     .para1 {
         font-size: 3rem;
         line-height: 150%;
-        color:${lightTheme.para1};
+        color:${props => props.isDark ? darkTheme.para1 : lightTheme.para1};
 
         ${media.mobile} {
             font-size: 2.5rem;
@@ -52,7 +58,7 @@ export const BannerWarapper = styled.div`
         font-size: 4rem;
         line-height: 130%;
         font-family: 'Anton', sans-serif;
-        color:${lightTheme.para2};
+        color:${props => props.isDark ? darkTheme.para2 : lightTheme.para2};
 
         ${media.mobile} {
             font-size: 3rem;
