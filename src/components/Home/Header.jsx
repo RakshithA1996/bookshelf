@@ -32,7 +32,7 @@ export const Header = (props) => {
                     </label>
                 </div>
                 <button className="signUpHeader" onClick={props.executeScroll}>Sign Up</button>
-                <button className="loginHeader">Login</button>
+                <button className="loginHeader" onClick={props.toggleLogin}>Login</button>
             </HeaderButtonWrap>
         </HeaderWrapper>
     )

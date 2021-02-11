@@ -71,6 +71,11 @@ export const FeatureWrapper = styled.div`
                     align-items: center;
                     justify-content: center;
                 }
+
+                &__img{
+                    width: 100px;
+                    height: 100px;
+                }
             }
 
             &--heading {

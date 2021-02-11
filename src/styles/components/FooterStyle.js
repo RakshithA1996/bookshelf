@@ -14,6 +14,10 @@ const darkTheme = {
     footerNameColor:"#000000"
 }
 
+const media = {
+    mobile:'@media(max-width:600px)'
+}
+
 export const FooterWrapper = styled.div`
     padding:12rem 6rem;
     width: 100%;
@@ -22,10 +26,20 @@ export const FooterWrapper = styled.div`
     align-items:center;
     background: ${ props => props.isDark ? darkTheme.footerBg : lightTheme.footerBg};  
 
+    ${media.mobile} {
+        flex-direction: column;
+        padding: 6rem 4rem;
+    }
+
     .footerCol1 {
         width: 40%;
         font-family: 'Abril Fatface',cursive;
         color: ${ props => props.isDark ? darkTheme.footerCol1Color : lightTheme.footerCol1Color}; 
+
+        ${media.mobile} {
+            width: 100%;
+            margin-bottom:8rem;
+        }
 
         &__createdLabel{
             font-size: 4rem;
@@ -45,8 +59,17 @@ export const FooterWrapper = styled.div`
         align-items: center;
         justify-content: space-between;
 
+        ${media.mobile} {
+            width: 100%;
+            flex-direction:column;
+        }
+
         &__content1, &__content2{
             width: 60%;
+
+            ${media.mobile} {
+                width: 100%;
+            }
 
             &--row1, &--row2{
                 display:flex;
@@ -92,6 +115,13 @@ export const FooterWrapper = styled.div`
         &__content2 {
             margin-left: 8rem;
             width: 40%;
+
+            ${media.mobile} {
+                width: 100%;
+                margin-left:0;
+                margin-top: 4rem;
+                flex-direction:column;
+            }
         }
     }
 `;
