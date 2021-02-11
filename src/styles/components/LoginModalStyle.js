@@ -1,10 +1,22 @@
 import styled from 'styled-components';
 
 const lightTheme = {
-    modalBg:"#ffffff;"
+    modalBg:"#ffffff",
+    headerColor:"#000000",
+    inputBoder:"1px solid #383838",
+    inputBorderFocus:"#f0912b",
+    buttonBg:"#383838",
+    buttonColor:"#f0912b"
 }
 
 const darkTheme = {
+    modalBg:"#000000",
+    headerColor:"#ffffff",
+    inputBoder:"1px solid #383838",
+    inputBorderFocus:"#0bbdab",
+    buttonBg:"#969696",
+    buttonColor:"#383838",
+    borderColor:"#383838"
 }
 
 const media = {
@@ -24,14 +36,19 @@ export const LoginModalWrapper = styled.div`
     background-color: rgba(0, 0, 0, 0.6);
 
     .container {
-        background-color: #ffffff;
+        background-color: ${props => props.isDark ? darkTheme.modalBg : lightTheme.modalBg};
         margin: auto;
         width: 30%;
         padding:1.6rem;
         border-radius: 4px;
+        border: 2px solid ${props => props.isDark ? darkTheme.borderColor : "none"};
 
-        @include respond(phone) {
+        ${media.mobile} {
             width: 100%;
+            position:absolute;
+            bottom:0;
+            padding: 3rem;
+            border-radius:20px 20px 0 0;
         }
 
         &__header {
@@ -42,6 +59,7 @@ export const LoginModalWrapper = styled.div`
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
+            color: ${props => props.isDark ? darkTheme.headerColor : lightTheme.headerColor};
 
             &--img {
                 &:hover {
@@ -53,16 +71,26 @@ export const LoginModalWrapper = styled.div`
         &__body {
             margin-top:1.6rem;
 
+            ${media.mobile} {
+                padding-bottom: 30rem;
+                margin-top:2.6rem;
+            }
+
             &--input {
                 width: 100%;
-                padding: 1.2rem;
-                border: 1px solid #e5e5e5;
+                padding: 1.6rem;
+                border: ${props => props.isDark ? darkTheme.inputBoder : lightTheme.inputBoder};
                 border-radius: 5px;
                 margin-bottom: 1.6rem;
+                background: ${props => props.isDark ? darkTheme.modalBg : lightTheme.modalBg};
+
+                ${media.mobile} {
+                    margin-bottom:2.6rem;
+                }
 
                 &:focus {
                     outline:none;
-                    border: 0.1rem solid blue;
+                    border: 1px solid ${props => props.isDark ? darkTheme.inputBorderFocus : lightTheme.inputBorderFocus};
                 }
             }
         }
@@ -78,8 +106,13 @@ export const LoginModalWrapper = styled.div`
                 border:none;
                 border-radius: 5px;
                 letter-spacing:0.1rem;
-                color:#f0912b;
-                background:#383838;
+                color:${props => props.isDark ? darkTheme.buttonColor : lightTheme.buttonColor};
+                background:${props => props.isDark ? darkTheme.buttonBg : lightTheme.buttonBg};
+
+                ${media.mobile} {
+                   width:100%;
+                   padding: 1.4rem 0;
+                }
 
                 &:hover {
                     cursor: pointer;

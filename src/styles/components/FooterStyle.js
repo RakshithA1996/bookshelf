@@ -76,7 +76,7 @@ export const FooterWrapper = styled.div`
                 flex-direction:row;
                 align-items:center;
                 font-size: 1.4rem;
-                margin-bottom: 3rem;
+                margin-bottom: 1rem;
                 line-height: 180%;
                 color: ${ props => props.isDark ? darkTheme.footerlLabelColor : lightTheme.footerlLabelColor}; 
 
@@ -102,7 +102,7 @@ export const FooterWrapper = styled.div`
                 }
 
                 &__para {
-                    margin-left: 1.6rem;
+                    margin-left: 1.2rem;
                     color: ${ props => props.isDark ? darkTheme.footerNameColor : lightTheme.footerNameColor};
 
                     &:hover {

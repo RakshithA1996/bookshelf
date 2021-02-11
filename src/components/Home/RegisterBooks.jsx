@@ -7,7 +7,7 @@ import book2 from "../../images/book2.png";
 export const PopularBooks = () => {
     const isDark = useSelector(state => state.dark.mode);
     return (
-        <RegisterWrapper isDark={isDark}>
+        <RegisterWrapper isDark={isDark} id="signup">
             <div className="registerCol1">
                 <img className="bookImg" src={book2} alt="book" />
             </div>

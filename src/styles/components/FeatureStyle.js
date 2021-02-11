@@ -57,16 +57,19 @@ export const FeatureWrapper = styled.div`
 
             ${media.mobile} {
                 margin-bottom: 3rem;
+                display:flex !important;
             }
 
             &--image {
                 margin-bottom: 4rem;
                 padding:1rem;
                 padding-bottom:0.4rem;
+                border-radius:20px;
                 background: ${props => props.isDark ? darkTheme.featureImgBg : lightTheme.featureImgBg};
 
                 ${media.mobile} {
-                    width: 100%;
+                    width: 40%;
+                    padding-bottom:1rem;
                     display:flex;
                     align-items: center;
                     justify-content: center;
@@ -102,4 +105,8 @@ export const FeatureWrapper = styled.div`
             display:block;
         }
     }
+
+    /* .ftQQrU .featureBody__container {
+        display:flex !important;
+    } */
 `;

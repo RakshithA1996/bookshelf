@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import setDark from '../../redux/actions/setDark';
-// import blackSearch from "../images/blackSearch.png";
+import {Link} from 'react-scroll';
 import { HeaderWrapper, HeaderButtonWrap } from '../../styles/components/HeaderStyle';
 
 export const Header = (props) => {
@@ -31,7 +31,11 @@ export const Header = (props) => {
                         <div class="slider round"></div>
                     </label>
                 </div>
-                <button className="signUpHeader" onClick={props.executeScroll}>Sign Up</button>
+                <Link className="linkScroll" to="signup"  >
+                    <button className="signUpHeader" >
+                        Sign Up
+                    </button>
+                </Link>
                 <button className="loginHeader" onClick={props.toggleLogin}>Login</button>
             </HeaderButtonWrap>
         </HeaderWrapper>

@@ -187,12 +187,16 @@ export const HeaderButtonWrap = styled.div`
     }
 
     .signUpHeader {
-        width: 13%;
+        width: 100%;
         border:none;
         padding: 0.8rem 0rem;
         border-radius: 5px;
         background: ${props => props.isDark ? darkTheme.signUpBg :lightTheme.signUpBg};
         color: ${props => props.isDark ? darkTheme.signUpColor :lightTheme.signUpColor};
+    }
+
+    .linkScroll {
+        width:13%;
 
         ${media.mobile} {
             width: 25%;

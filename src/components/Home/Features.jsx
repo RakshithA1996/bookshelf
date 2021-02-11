@@ -48,7 +48,7 @@ export const Features = () => {
                 })}
             </div>
             <div className="featureCarousel">
-                <Slider {...settings}>
+                <Slider {...settings} >
                     {featureArray.map((data)=>{
                         return (
                             <div className="featureBody__container" key={data.id}>
