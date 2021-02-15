@@ -26,9 +26,9 @@ export const Header = (props) => {
             <HeaderButtonWrap isDark={isDark}>
                 <div className="darkMode">
                     <div className="darkMode__para">{isDark ? 'Light' : 'Dark'}</div>
-                    <label class="switch" for="checkbox">
+                    <label className="switch" htmlFor="checkbox">
                         <input type="checkbox" id="checkbox" onChange={() => toggleDarkMode(isDark)} checked={isDark} />
-                        <div class="slider round"></div>
+                        <div className="slider round"></div>
                     </label>
                 </div>
                 <Link className="linkScroll" to="signup"  >

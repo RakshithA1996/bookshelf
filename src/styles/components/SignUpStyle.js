@@ -8,7 +8,8 @@ const lightTheme = {
     inputBorder:"#383838",
     inputBorderFocus:"#f0912b",
     buttonBg:"#383838",
-    buttonColor:"#f0912b"
+    buttonColor:"#f0912b",
+    errorColor:"red",
 }
 
 const darkTheme = {
@@ -19,7 +20,8 @@ const darkTheme = {
     inputBorder:"#383838",
     inputBorderFocus:"#0bbdab",
     buttonBg:"#969696",
-    buttonColor:"#383838"
+    buttonColor:"#383838",
+    errorColor:"#0bbdab",
 }
 
 export const SignUpWrapper = styled.div`
@@ -68,5 +70,11 @@ export const SignUpWrapper = styled.div`
         &:focus {
             outline:none;
         }
+    }
+
+    .formError {
+        color:${props => props.isDark ? darkTheme.errorColor : lightTheme.errorColor};
+        font-size:1.2rem;
+        margin-top: -1.8rem;
     }
 `;

@@ -4,15 +4,17 @@ const lightTheme = {
     modalBg:"#ffffff",
     headerColor:"#000000",
     inputBoder:"1px solid #383838",
+    inputColor:"#000000",
     inputBorderFocus:"#f0912b",
     buttonBg:"#383838",
     buttonColor:"#f0912b"
 }
 
 const darkTheme = {
-    modalBg:"#000000",
+    modalBg:"#141414",
     headerColor:"#ffffff",
     inputBoder:"1px solid #383838",
+    inputColor:"#ffffff",
     inputBorderFocus:"#0bbdab",
     buttonBg:"#969696",
     buttonColor:"#383838",
@@ -20,7 +22,7 @@ const darkTheme = {
 }
 
 const media = {
-    mobile:'@media(max-width:600px)'
+    mobile:'@media(max-width:600px)',
 }
 
 export const LoginModalWrapper = styled.div`
@@ -49,6 +51,7 @@ export const LoginModalWrapper = styled.div`
             bottom:0;
             padding: 3rem;
             border-radius:20px 20px 0 0;
+            border:none;
         }
 
         &__header {
@@ -73,12 +76,13 @@ export const LoginModalWrapper = styled.div`
 
             ${media.mobile} {
                 padding-bottom: 30rem;
-                margin-top:2.6rem;
+                margin-top:4.6rem;
             }
 
             &--input {
                 width: 100%;
                 padding: 1.6rem;
+                color:${props => props.isDark ? darkTheme.inputColor : lightTheme.inputColor};
                 border: ${props => props.isDark ? darkTheme.inputBoder : lightTheme.inputBoder};
                 border-radius: 5px;
                 margin-bottom: 1.6rem;
@@ -90,7 +94,7 @@ export const LoginModalWrapper = styled.div`
 
                 &:focus {
                     outline:none;
-                    border: 1px solid ${props => props.isDark ? darkTheme.inputBorderFocus : lightTheme.inputBorderFocus};
+                    border: 2px solid ${props => props.isDark ? darkTheme.inputBorderFocus : lightTheme.inputBorderFocus};
                 }
             }
         }

@@ -1,6 +1,7 @@
 import React from 'react';
 import book1 from "../../images/book4.png";
-import bookBg from "../../images/bookBg.png";
+import bookBg from "../../images/mobilebook.png";
+import bookBgDark from "../../images/mobiledark.png";
 import { useSelector } from 'react-redux';
 import { BannerWarapper } from '../../styles/components/BannerStyle';
 
@@ -18,7 +19,7 @@ export const Banner = () => {
                 <img className="bannerImg" src={book1} alt="book" />
             </div>
             <div className="bannerColMobile">
-                <img className="bannerImgMb" src={bookBg} alt="book" />
+                <img className="bannerImgMb" src={isDark ? bookBgDark : bookBg} alt="book" />
             </div>
         </BannerWarapper>
     )

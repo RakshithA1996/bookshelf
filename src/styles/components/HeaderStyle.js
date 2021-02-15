@@ -43,6 +43,7 @@ export const HeaderWrapper = styled.div`
     align-items:center;
     position:fixed;
     top:0;
+    z-index:1;
     width:100%;
     padding: 1.2rem 0;
     background: ${props => props.isDark ? darkTheme.headerBg : lightTheme.headerBg};
