@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import setDark from '../../redux/actions/setDark';
-// import blackSearch from "../images/blackSearch.png";
+import {Link} from 'react-scroll';
 import { HeaderWrapper, HeaderButtonWrap } from '../../styles/components/HeaderStyle';
 
 export const Header = (props) => {
@@ -18,7 +18,7 @@ export const Header = (props) => {
 
     return (
         <HeaderWrapper isBorder={props.isBorder} isDark={isDark}>
-            <div className="logo1">BOOK<span className="logo2">shelf</span></div>
+            <div className="logo1">BOOK<span className="logo2">stron</span></div>
             {/* <div className="search">
                 <input className="searchBar" placeholder="search . . ." />
                 <img className="searchImg" src={blackSearch} alt="blackSearch" />
@@ -26,13 +26,17 @@ export const Header = (props) => {
             <HeaderButtonWrap isDark={isDark}>
                 <div className="darkMode">
                     <div className="darkMode__para">{isDark ? 'Light' : 'Dark'}</div>
-                    <label class="switch" for="checkbox">
+                    <label className="switch" htmlFor="checkbox">
                         <input type="checkbox" id="checkbox" onChange={() => toggleDarkMode(isDark)} checked={isDark} />
-                        <div class="slider round"></div>
+                        <div className="slider round"></div>
                     </label>
                 </div>
-                <button className="signUpHeader" onClick={props.executeScroll}>Sign Up</button>
-                <button className="loginHeader">Login</button>
+                <Link className="linkScroll" to="signup"  >
+                    <button className="signUpHeader" >
+                        Sign Up
+                    </button>
+                </Link>
+                <button className="loginHeader" onClick={props.toggleLogin}>Login</button>
             </HeaderButtonWrap>
         </HeaderWrapper>
     )

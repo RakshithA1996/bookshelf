@@ -80,6 +80,8 @@ export const BannerWarapper = styled.div`
 
         ${media.mobile} {
            display:flex; 
+           padding-bottom:${props => props.isDark ? "8rem" : ""};
+           opacity:${props => props.isDark ? "0.3" : ""};
         }
     }
 

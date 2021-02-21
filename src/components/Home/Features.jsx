@@ -1,7 +1,7 @@
 import React from 'react';
-import icon1 from "../../images/icon1.png";
-import icon2 from "../../images/icon2.png";
-import icon3 from "../../images/icon3.png";
+import icon1 from "../../images/face.png";
+import icon2 from "../../images/book.png";
+import icon3 from "../../images/lang.webp";
 import {useSelector} from 'react-redux';
 import { FeatureWrapper } from '../../styles/components/FeatureStyle';
 import Slider from "react-slick";
@@ -18,7 +18,9 @@ export const Features = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows:false
+        arrows:false,
+        autoplay: true,
+        autoplaySpeed: 2000
     };
 
     return(
@@ -46,7 +48,7 @@ export const Features = () => {
                 })}
             </div>
             <div className="featureCarousel">
-                <Slider {...settings}>
+                <Slider {...settings} >
                     {featureArray.map((data)=>{
                         return (
                             <div className="featureBody__container" key={data.id}>
