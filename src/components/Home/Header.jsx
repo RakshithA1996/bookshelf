@@ -18,7 +18,7 @@ export const Header = (props) => {
 
     return (
         <HeaderWrapper isBorder={props.isBorder} isDark={isDark}>
-            <div className="logo1">BOOK<span className="logo2">shelf</span></div>
+            <div className="logo1">BOOK<span className="logo2">stron</span></div>
             {/* <div className="search">
                 <input className="searchBar" placeholder="search . . ." />
                 <img className="searchImg" src={blackSearch} alt="blackSearch" />
