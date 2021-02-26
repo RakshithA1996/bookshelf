@@ -7,7 +7,7 @@ const lightTheme = {
 }
 
 const darkTheme = {
-    registerBg:"#383838",
+    registerBg:"#1c1c1c",
     quoteColor:"#0bbdab",
     quoteShadow:"#000000",
 }

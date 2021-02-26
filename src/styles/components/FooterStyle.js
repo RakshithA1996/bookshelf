@@ -8,7 +8,7 @@ const lightTheme = {
 }
 
 const darkTheme = {
-    footerBg:"#0bbdab",
+    footerBg:"#ffffff",
     footerCol1Color:"#000000",
     footerlLabelColor:"#051c38",
     footerNameColor:"#000000"
