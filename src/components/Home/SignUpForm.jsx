@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 import { SignUpWrapper } from "../../styles/components/SignUpStyle";
 
 export const SignUpForm = () => {
+  const history = useHistory();
   const isDark = useSelector((state) => state.dark.mode);
   const [name, handleName] = useState("");
   const [mobile, handleMobile] = useState("");
   const [email, handleEmail] = useState("");
+  const [password, handlePassword] = useState("");
   const [nameError, handleNameError] = useState(true);
   const [mobileError, handleMobileError] = useState(true);
   const [emailError, handleEmailError] = useState(true);
+  const [passwordError, handlePasswordError] = useState(true);
   const [buttonEnabled, handleButtonEnable] = useState(false);
 
   const setName = (e) => {
@@ -77,6 +82,52 @@ export const SignUpForm = () => {
     }
   };
 
+  const setPassword = (e) => {
+    handlePassword(e.target.value);
+    if (e.target.value.length > 3) {
+      handlePasswordError(true);
+    }
+  };
+
+  const checkPasswordError = (e) => {
+    if (e.target.value.length < 3) {
+      handlePasswordError(false);
+    } else {
+      handlePasswordError(true);
+    }
+  };
+
+  const registerUser = () => {
+    const payload = {
+      name: name,
+      mobile: parseInt(mobile),
+      email: email,
+      password: password,
+    };
+
+    fetch(`http://localhost:8080/users/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === "success") {
+          toast.success(res.message);
+          handleName("");
+          handleMobile("");
+          handleEmail("");
+          handlePassword("");
+          history.push("/dashboard");
+        } else {
+          toast.error(res.message);
+        }
+      })
+      .catch((err) => console.log(err.message));
+  };
+
   return (
     <SignUpWrapper isDark={isDark}>
       <div className="formHeader">Register to buy books</div>
@@ -113,19 +164,33 @@ export const SignUpForm = () => {
       ) : (
         ""
       )}
+      <input
+        className="formInput"
+        value={password}
+        onChange={setPassword}
+        onBlur={checkPasswordError}
+        placeholder="eg. asdas@435sdQS"
+      />
+      {!passwordError ? (
+        <span className="formError">*Password not valid</span>
+      ) : (
+        ""
+      )}
       <button
         disabled={
           name !== "" &&
           mobile !== "" &&
           email !== "" &&
+          password !== "" &&
           nameError === true &&
           mobileError === true &&
-          emailError === true
+          emailError === true &&
+          passwordError === true
             ? false
             : true
         }
         className="formButton"
-        onClick={() => console.log("dstrfsdfsdf")}
+        onClick={() => registerUser()}
       >
         Submit
       </button>

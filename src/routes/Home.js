@@ -44,6 +44,7 @@ class Home extends Component {
           toggleLogin={this.toggleLogin}
         />
         <Banner />
+        <div id="signup"></div>
         <PopularBooks />
         <Features />
         <Footer />
