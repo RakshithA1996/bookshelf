@@ -15,6 +15,7 @@ const darkTheme = {
 export const DashboardWrap = styled.div`
   display: flex;
   flex-direction: row;
+  font-family: Circular Std Book;
 
   .navbar {
     background: ${(props) =>

@@ -3,7 +3,8 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import DashContent from "../components/Dashboard/DashContent";
 import Navbar from "../components/Dashboard/Navbar";
-import {Footer} from "../components/Home/Footer";
+import { Footer } from "../components/Home/Footer";
+import LogoutModal from "../components/MiniComponents/LogoutModal";
 import { DashboardWrap } from "../styles/routes/DashboardStyle";
 
 class Dashboard extends Component {
@@ -11,6 +12,7 @@ class Dashboard extends Component {
     super();
     this.state = {
       isNavbar: false,
+      isLogoutModal: false,
     };
   }
 
@@ -18,8 +20,12 @@ class Dashboard extends Component {
     this.setState({ isNavbar: !this.state.isNavbar });
   };
 
+  toggleLogoutModal = () => {
+    this.setState({ isLogoutModal: !this.state.isLogoutModal });
+  };
+
   render() {
-    const { isNavbar } = this.state;
+    const { isNavbar, isLogoutModal } = this.state;
     return (
       <div>
         <DashboardWrap isDark={this.props.isDark}>
@@ -27,10 +33,15 @@ class Dashboard extends Component {
             <Navbar toggleNavbar={this.toggleNavbar} isNavbar={isNavbar} />
           </div>
           <div className="dashboard">
-            <DashContent />
+            <DashContent toggleLogoutModal={this.toggleLogoutModal} />
           </div>
         </DashboardWrap>
         <Footer />
+        {isLogoutModal ? (
+          <LogoutModal toggleLogoutModal={this.toggleLogoutModal} />
+        ) : (
+          ""
+        )}
       </div>
     );
   }

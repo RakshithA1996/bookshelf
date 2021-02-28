@@ -6,16 +6,15 @@ const media = {
 
 const lightTheme = {
   paraColor: "#000000",
+  labelColor: "#000000",
 };
 
 const darkTheme = {
   paraColor: "#ffffff",
+  labelColor: "#0bbdab",
 };
 
 export const DashPopularWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
   font-size: 1.25rem;
   line-height: 160%;
@@ -35,6 +34,9 @@ export const DashPopularWrap = styled.div`
   }
 
   .bookLabel {
-    margin-right: 0.1rem;
+    margin-right: 0.2rem;
+    font-weight: 700;
+    color: ${(props) =>
+      props.isDark ? darkTheme.labelColor : lightTheme.labelColor};
   }
 `;

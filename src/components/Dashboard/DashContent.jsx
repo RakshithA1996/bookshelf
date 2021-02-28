@@ -4,7 +4,7 @@ import { DashContentWrap } from "../../styles/components/Dashboard/DashContentSt
 import DashHeader from "./DashHeader";
 import DashPopular from "./DashPopular";
 
-export default function DashContent() {
+export default function DashContent(props) {
   const isDark = useSelector((state) => state.dark.mode);
   const popularBooksArr = [
     {
@@ -35,7 +35,7 @@ export default function DashContent() {
   ];
   return (
     <DashContentWrap isDark={isDark}>
-      <DashHeader />
+      <DashHeader toggleLogoutModal={props.toggleLogoutModal} />
       <div className="dashboardMain">
         <div className="contentHeader">Popular Books</div>
         <div className="contentPopular">

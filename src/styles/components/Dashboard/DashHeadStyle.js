@@ -25,7 +25,7 @@ const darkTheme = {
 };
 
 export const DashHeadWrap = styled.div`
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -127,11 +127,11 @@ export const DashHeadWrap = styled.div`
       border: none;
       padding: 0.8rem 2rem;
       border-radius: 5px;
-      font-weight: 700;
       background: ${(props) =>
         props.isDark ? darkTheme.buttonBg : lightTheme.buttonBg};
       color: ${(props) =>
         props.isDark ? darkTheme.buttonColor : lightTheme.buttonColor};
+      font-family: Circular Std Book;
 
       :hover {
         cursor: pointer;

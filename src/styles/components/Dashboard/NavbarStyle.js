@@ -29,9 +29,11 @@ export const NavbarWrap = styled.div`
     font-size: 1.8rem;
     color: ${(props) =>
       props.isDark ? darkTheme.navColor2 : lightTheme.navColor2};
+    transition: 0.5s;
 
     &:hover {
       cursor: pointer;
+      color: #0073ff;
     }
   }
 `;
@@ -50,14 +52,23 @@ export const Navbar2Wrap = styled.div`
   .iconReactNav {
     padding: 2rem;
     font-size: 1.8rem;
+    font-weight: 700;
     display: flex;
     flex-direction: row;
     align-items: center;
     color: ${(props) =>
       props.isDark ? darkTheme.navColor2 : lightTheme.navColor2};
+    transition: 0.5s;
 
     &:hover {
       cursor: pointer;
+      color: #0073ff;
+    }
+  }
+
+  .iconReactNav {
+    &:hover {
+      color: #d40404;
     }
   }
 

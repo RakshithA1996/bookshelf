@@ -9,16 +9,16 @@ export default function DashPopular(props) {
     <DashPopularWrap isDark={isDark}>
       <img className="bookCover" src={meluha} alt="" />
       <div className="bookName">
-        <span className="bookLabel">Name </span>
-        <span className="bookPara">: {props.name}</span>
+        <span className="bookLabel">Name : </span>
+        <span className="bookPara">{" "}{props.name}</span>
       </div>
       <div className="bookAuthor">
-        <span className="bookLabel">Author </span>
-        <span className="bookPara">: {props.author}</span>
+        <span className="bookLabel">Author : </span>
+        <span className="bookPara">{" "}{props.author}</span>
       </div>
       <div className="bookPublish">
-        <span className="bookLabel">Publisher </span>
-        <span className="bookPara">: {props.publisher}</span>
+        <span className="bookLabel">Publisher : </span>
+        <span className="bookPara">{" "}{props.publisher}</span>
       </div>
     </DashPopularWrap>
   );

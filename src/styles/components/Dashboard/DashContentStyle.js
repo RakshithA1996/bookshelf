@@ -26,7 +26,6 @@ export const DashContentWrap = styled.div`
 
   .contentHeader,
   .contentHeader1 {
-    padding-left: 2rem;
     margin-top: 10rem;
     font-size: 3rem;
     font-weight: 700;
@@ -43,8 +42,7 @@ export const DashContentWrap = styled.div`
   }
 
   .contentPopular {
-    padding: 0 2rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 4rem;
@@ -52,7 +50,7 @@ export const DashContentWrap = styled.div`
   }
 
   .dashboardMain {
-    padding-left: 4rem;
+    padding-left: 6rem;
     padding-bottom: 4rem;
   }
 `;
