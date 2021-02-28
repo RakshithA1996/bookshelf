@@ -19,7 +19,7 @@ const media = {
 }
 
 export const FooterWrapper = styled.div`
-    padding:12rem 6rem;
+    padding:6rem;
     width: 100%;
     display:flex;
     flex-direction:row;
@@ -42,12 +42,12 @@ export const FooterWrapper = styled.div`
         }
 
         &__createdLabel{
-            font-size: 4rem;
+            font-size: 3rem;
             line-height: 150%;
         }
 
         &__createdName {
-            font-size: 4rem;
+            font-size: 3rem;
             line-height: 150%;
         }
     }
