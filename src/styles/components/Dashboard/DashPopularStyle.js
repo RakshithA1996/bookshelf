@@ -20,8 +20,13 @@ export const DashPopularWrap = styled.div`
   line-height: 160%;
   color: ${(props) =>
     props.isDark ? darkTheme.paraColor : lightTheme.paraColor};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   .bookCover {
-    width: 70%;
+    width: 65%;
+    max-height: 290px
   }
   .bookName {
     margin-top: 1rem;
