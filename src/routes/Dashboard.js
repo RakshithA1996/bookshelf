@@ -1,12 +1,13 @@
 import React from "react";
 import { Component } from "react";
 import { connect } from "react-redux";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 import DashContent from "../components/Dashboard/DashContent";
 import Navbar from "../components/Dashboard/Navbar";
 import { Footer } from "../components/Home/Footer";
 import LogoutModal from "../components/MiniComponents/LogoutModal";
 import { DashboardWrap } from "../styles/routes/DashboardStyle";
+import meluha from "../images/book cover/meluha.jpg";
 
 class Dashboard extends Component {
   constructor() {
@@ -14,65 +15,44 @@ class Dashboard extends Component {
     this.state = {
       isNavbar: false,
       isLogoutModal: false,
-      popularBooksArr: [
-        {
-          name: "The Immortals of Meluha",
-          author: "Amish Tripathi",
-          publisher: "Westland Press",
-        },
-        {
-          name: "The Immortals of Meluha",
-          author: "Amish Tripathi",
-          publisher: "Westland Press",
-        },
-        {
-          name: "The Immortals of Meluha",
-          author: "Amish Tripathi",
-          publisher: "Westland Press",
-        },
-        {
-          name: "The Immortals of Meluha",
-          author: "Amish Tripathi",
-          publisher: "Westland Press",
-        },
-        {
-          name: "The Immortals of Meluha",
-          author: "Amish Tripathi",
-          publisher: "Westland Press",
-        },
-      ],
+      popularBooksArr: [],
       newCollectionBooksArr: [
         {
           name: "The Immortals of Meluha",
           author: "Amish Tripathi",
           publisher: "Westland Press",
+          poster: meluha,
         },
         {
           name: "The Immortals of Meluha",
           author: "Amish Tripathi",
           publisher: "Westland Press",
+          poster: meluha,
         },
         {
           name: "The Immortals of Meluha",
           author: "Amish Tripathi",
           publisher: "Westland Press",
+          poster: meluha,
         },
         {
           name: "The Immortals of Meluha",
           author: "Amish Tripathi",
           publisher: "Westland Press",
+          poster: meluha,
         },
         {
           name: "The Immortals of Meluha",
           author: "Amish Tripathi",
           publisher: "Westland Press",
+          poster: meluha,
         },
       ],
     };
   }
 
-  componentDidMount(){
-    this.getPopularBooks()
+  componentDidMount() {
+    this.getPopularBooks();
   }
 
   toggleNavbar = () => {
@@ -92,7 +72,11 @@ class Dashboard extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        if (res.status === "success") {
+          this.setState({ popularBooksArr: res.data });
+        } else {
+          toast.error("Api failed");
+        }
       })
       .catch((err) => toast.error(err.message));
   };

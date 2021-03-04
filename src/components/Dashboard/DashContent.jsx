@@ -6,7 +6,7 @@ import DashPopular from "./DashPopular";
 
 export default function DashContent(props) {
   const isDark = useSelector((state) => state.dark.mode);
-  
+
   return (
     <DashContentWrap isDark={isDark}>
       <DashHeader toggleLogoutModal={props.toggleLogoutModal} />
@@ -20,6 +20,7 @@ export default function DashContent(props) {
                 name={data.name}
                 author={data.author}
                 publisher={data.publisher}
+                poster={data.poster}
               />
             );
           })}
@@ -33,6 +34,7 @@ export default function DashContent(props) {
                 name={data.name}
                 author={data.author}
                 publisher={data.publisher}
+                poster={data.poster}
               />
             );
           })}
