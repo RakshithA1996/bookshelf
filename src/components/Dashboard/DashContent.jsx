@@ -6,40 +6,14 @@ import DashPopular from "./DashPopular";
 
 export default function DashContent(props) {
   const isDark = useSelector((state) => state.dark.mode);
-  const popularBooksArr = [
-    {
-      name: "The Immortals of Meluha",
-      author: "Amish Tripathi",
-      publisher: "Westland Press",
-    },
-    {
-      name: "The Immortals of Meluha",
-      author: "Amish Tripathi",
-      publisher: "Westland Press",
-    },
-    {
-      name: "The Immortals of Meluha",
-      author: "Amish Tripathi",
-      publisher: "Westland Press",
-    },
-    {
-      name: "The Immortals of Meluha",
-      author: "Amish Tripathi",
-      publisher: "Westland Press",
-    },
-    {
-      name: "The Immortals of Meluha",
-      author: "Amish Tripathi",
-      publisher: "Westland Press",
-    },
-  ];
+  
   return (
     <DashContentWrap isDark={isDark}>
       <DashHeader toggleLogoutModal={props.toggleLogoutModal} />
       <div className="dashboardMain">
         <div className="contentHeader">Popular Books</div>
         <div className="contentPopular">
-          {popularBooksArr.map((data, index) => {
+          {props.popularBooksArr.map((data, index) => {
             return (
               <DashPopular
                 key={index}
@@ -52,7 +26,7 @@ export default function DashContent(props) {
         </div>
         <div className="contentHeader1">New Collection</div>
         <div className="contentPopular">
-          {popularBooksArr.map((data, index) => {
+          {props.newCollectionBooksArr.map((data, index) => {
             return (
               <DashPopular
                 key={index}
