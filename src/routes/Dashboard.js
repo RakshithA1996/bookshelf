@@ -16,43 +16,13 @@ class Dashboard extends Component {
       isNavbar: false,
       isLogoutModal: false,
       popularBooksArr: [],
-      newCollectionBooksArr: [
-        {
-          name: "The Immortals of Meluha",
-          author: "Amish Tripathi",
-          publisher: "Westland Press",
-          poster: meluha,
-        },
-        {
-          name: "The Immortals of Meluha",
-          author: "Amish Tripathi",
-          publisher: "Westland Press",
-          poster: meluha,
-        },
-        {
-          name: "The Immortals of Meluha",
-          author: "Amish Tripathi",
-          publisher: "Westland Press",
-          poster: meluha,
-        },
-        {
-          name: "The Immortals of Meluha",
-          author: "Amish Tripathi",
-          publisher: "Westland Press",
-          poster: meluha,
-        },
-        {
-          name: "The Immortals of Meluha",
-          author: "Amish Tripathi",
-          publisher: "Westland Press",
-          poster: meluha,
-        },
-      ],
+      newCollectionBooksArr: [],
     };
   }
 
   componentDidMount() {
     this.getPopularBooks();
+    this.getNewBooks();
   }
 
   toggleNavbar = () => {
@@ -64,7 +34,7 @@ class Dashboard extends Component {
   };
 
   getPopularBooks = () => {
-    fetch(`http://localhost:8080/users/allBooks`, {
+    fetch(`http://localhost:8080/users/allPopBooks`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -74,6 +44,24 @@ class Dashboard extends Component {
       .then((res) => {
         if (res.status === "success") {
           this.setState({ popularBooksArr: res.data });
+        } else {
+          toast.error("Api failed");
+        }
+      })
+      .catch((err) => toast.error(err.message));
+  };
+
+  getNewBooks = () => {
+    fetch(`http://localhost:8080/users/allNewCollection`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === "success") {
+          this.setState({ newCollectionBooksArr: res.data });
         } else {
           toast.error("Api failed");
         }
