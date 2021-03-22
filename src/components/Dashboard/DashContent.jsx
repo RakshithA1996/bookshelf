@@ -17,10 +17,13 @@ export default function DashContent(props) {
             return (
               <DashPopular
                 key={index}
+                id={index}
                 name={data.name}
                 author={data.author}
                 publisher={data.publisher}
                 poster={data.poster}
+                arrayPointer={"popularBooksArr"}
+                toggleDetailsModal={props.toggleDetailsModal}
               />
             );
           })}
@@ -31,10 +34,13 @@ export default function DashContent(props) {
             return (
               <DashPopular
                 key={index}
+                id={index}
                 name={data.name}
                 author={data.author}
                 publisher={data.publisher}
                 poster={data.poster}
+                arrayPointer={"newCollectionBooksArr"}
+                toggleDetailsModal={props.toggleDetailsModal}
               />
             );
           })}

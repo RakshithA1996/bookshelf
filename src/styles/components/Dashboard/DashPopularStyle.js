@@ -23,6 +23,7 @@ export const DashPopularWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
 
   .bookCover {
     width: 65%;

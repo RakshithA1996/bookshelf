@@ -5,7 +5,12 @@ import { DashPopularWrap } from "../../styles/components/Dashboard/DashPopularSt
 export default function DashPopular(props) {
   const isDark = useSelector((state) => state.dark.mode);
   return (
-    <DashPopularWrap isDark={isDark}>
+    <DashPopularWrap
+      isDark={isDark}
+      onClick={() => {
+        props.toggleDetailsModal(props.id, props.arrayPointer);
+      }}
+    >
       <img className="bookCover" src={props.poster} alt="" />
       <div className="bookContent">
         <div className="bookName">
