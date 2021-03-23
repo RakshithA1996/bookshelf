@@ -7,7 +7,7 @@ import Navbar from "../components/Dashboard/Navbar";
 import { Footer } from "../components/Home/Footer";
 import LogoutModal from "../components/MiniComponents/LogoutModal";
 import { DashboardWrap } from "../styles/routes/DashboardStyle";
-import meluha from "../images/book cover/meluha.jpg";
+import BookDetailsModal from "../components/MiniComponents/BookDetailsModal";
 
 class Dashboard extends Component {
   constructor() {
@@ -17,6 +17,9 @@ class Dashboard extends Component {
       isLogoutModal: false,
       popularBooksArr: [],
       newCollectionBooksArr: [],
+      isDetailsModal: false,
+      arrayPointer: "",
+      activeIndex: "",
     };
   }
 
@@ -31,6 +34,14 @@ class Dashboard extends Component {
 
   toggleLogoutModal = () => {
     this.setState({ isLogoutModal: !this.state.isLogoutModal });
+  };
+
+  toggleDetailsModal = (id, arrayPointer) => {
+    this.setState({
+      isDetailsModal: !this.state.isDetailsModal,
+      activeIndex: id,
+      arrayPointer: arrayPointer,
+    });
   };
 
   getPopularBooks = () => {
@@ -73,7 +84,10 @@ class Dashboard extends Component {
     const {
       isNavbar,
       isLogoutModal,
+      isDetailsModal,
       popularBooksArr,
+      arrayPointer,
+      activeIndex,
       newCollectionBooksArr,
     } = this.state;
     return (
@@ -87,12 +101,50 @@ class Dashboard extends Component {
               popularBooksArr={popularBooksArr}
               newCollectionBooksArr={newCollectionBooksArr}
               toggleLogoutModal={this.toggleLogoutModal}
+              toggleDetailsModal={this.toggleDetailsModal}
             />
           </div>
         </DashboardWrap>
         <Footer />
         {isLogoutModal ? (
           <LogoutModal toggleLogoutModal={this.toggleLogoutModal} />
+        ) : (
+          ""
+        )}
+        {isDetailsModal ? (
+          <BookDetailsModal
+            closeModal={this.toggleDetailsModal}
+            name={
+              arrayPointer === "popularBooksArr"
+                ? popularBooksArr[activeIndex].name
+                : newCollectionBooksArr[activeIndex].name
+            }
+            description={
+              arrayPointer === "popularBooksArr"
+                ? popularBooksArr[activeIndex].description
+                : newCollectionBooksArr[activeIndex].description
+            }
+            author={
+              arrayPointer === "popularBooksArr"
+                ? popularBooksArr[activeIndex].author
+                : newCollectionBooksArr[activeIndex].author
+            }
+            publisher={
+              arrayPointer === "popularBooksArr"
+                ? popularBooksArr[activeIndex].publisher
+                : newCollectionBooksArr[activeIndex].publisher
+            }
+            poster={
+              arrayPointer === "popularBooksArr"
+                ? popularBooksArr[activeIndex].poster
+                : newCollectionBooksArr[activeIndex].poster
+            }
+            price={
+              arrayPointer === "popularBooksArr"
+                ? popularBooksArr[activeIndex].price
+                : newCollectionBooksArr[activeIndex].price
+            }
+          />
         ) : (
           ""
         )}
